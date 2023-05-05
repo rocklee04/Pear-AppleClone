@@ -6,6 +6,10 @@
   box-sizing: border-box;
   font-family: 'roboot', sans-serif;
   text-decoration: none;
+  position: relative;
+}
+html {
+  font-size: 62.5%;
 }
 nav {
   width: 100%;
@@ -79,7 +83,7 @@ nav ul li a:hover {
 #dropdown_container {
     height:400px;
     width: 100%;
-    background-color: rgba(22, 22, 23, .88);
+    background-color: #1d1d1f;
     position: fixed;
     top: 48px;
     z-index: 10;
@@ -91,7 +95,7 @@ nav ul li a:hover {
     display: flex;
     width: 70%;
     margin-top: 60px;
-    margin-left: 15%;
+    margin-left: 23%;
 }
 #dropdown_container > div > div {
    flex-basis: 25%;
@@ -102,14 +106,15 @@ nav ul li a:hover {
    margin-bottom: 10px;
    margin-top: 10px;
    font-weight: 800;
-   font-size: 18px;
+   font-size: 20px;
 }
 #dropdown_container > div > div > h5  {
   margin-bottom: 10px;
   margin-top: 10px;
+  font-size: 13px;
 } 
 #dropdown_container > div > div > p{
-    font-size: small;
+    font-size: 13px;
     margin-bottom: 20px;
 }
 #dropdown_container > div > div > p:hover  {
@@ -141,6 +146,29 @@ nav ul li a:hover {
     visibility: hidden;
 }
 
+#subnavbar {
+  margin-left: 100px;
+}
+
+#subnavbar > div:nth-child(1) {
+  display: flex;
+  flex-direction: row-reverse;
+}
+#subnavbar > div:nth-child(1) > div {
+  margin-left: 15px;
+  font-size:13px;
+  padding-top: 5px;
+  cursor: pointer;
+  color: white;
+}
+#subnavbar > div:nth-child(1)  a {
+  text-decoration: none;
+  color: #d6d4d4;
+}
+#subnavbar > div:nth-child(1) > div:hover {
+  text-decoration: underline;
+}
+
 .heading {
   text-align: center;
   padding: 12px 12px;
@@ -151,6 +179,147 @@ nav ul li a:hover {
 .heading a {
   color:  #2997ff;
 }
+
+.container {
+  max-width: 98rem;
+  margin: 0 auto;
+  padding: 0 2.2rem;
+  font-size: 10px;
+}
+
+.iphone-14-pro {
+  margin-top: 0;
+  background: url("../images/section-1.jpg");
+}
+
+/* iphone14 section */
+
+.iphone-14 {
+  background: url("../images/section-2.jpg");
+}
+
+.title {
+  color: #fff;
+  text-align: center;
+  padding-top: 5.5rem;
+}
+
+.title-heading {
+  font-size: 5.6rem;
+  line-height: 1.08;
+  letter-spacing: 0.005rem;
+}
+
+.title-sub-heading {
+  font-size: 2.65rem;
+  margin-top: 0.6rem;
+  letter-spacing: 0.008rem;
+  font-weight: 400;
+}
+
+.cta {
+  text-align: center;
+  margin-top: 1.8rem;
+}
+
+.cta-link {
+  color: #66bbff;
+  font-size: 2.1rem;
+  display: inline-block;
+}
+
+.cta-link:nth-child(2) {
+  margin-left: 2.6rem;
+}
+
+.cta-link:hover {
+  border-bottom: 2px solid #66bbff;
+}
+
+/* watch section */
+
+.watch {
+  background: url("../images/section-3.jpg");
+}
+
+.series {
+  color: rgb(190, 16, 16);
+  font-size: 2.4rem;
+}
+.title-dark {
+  color: black;
+}
+
+.cta-link-darker {
+  color: #0070c9;
+}
+
+.cta-link-darker:hover {
+  border-bottom-color: #0070c9;
+}
+
+/* section-4 */
+
+.section-4 {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.section-4  section {
+  width: 100%;
+  height: 60rem;
+}
+
+.box-heading {
+  font-size: 4.0rem;
+  line-height: 1.08;
+  letter-spacing: 0.005rem;
+}
+
+.box-sub-heading {
+  font-size: 2.0rem;
+  margin-top: 0.6rem;
+  letter-spacing: 0.008rem;
+  font-weight: 400;
+}
+.learning {
+  background: url("../images/section-4.1.jpg");
+}
+.trade {
+  background: url("../images/section-4.2.jpg");
+}
+.wwd {
+  background: url("../images/wwd.jpg");
+}
+.ipad {
+  background: url("../images/ipad.jpg");
+}
+.macbook {
+  background: url("../images/macbook.jpg");
+}
+.gifts {
+  background: url("../images/gifts.jpg");
+}
+
+.wwd .box-heading {
+  margin-top: 300px;
+}
+
+.hero {
+  height: 72.2rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-top: 0.6rem solid #fff;
+  border-bottom: 0.6rem solid #fff;
+}
+
+.iphone-14-pro {
+  border-top: none;
+}
+
 
 
 /*--- footer ---*/
@@ -173,8 +342,8 @@ footer {
     flex-basis: 25%;
   }
   .footer-detail {
-    font-size: .8rem;
-    color: #95a5a6;
+    font-size: 1.4rem;
+    color: #6e6e73;
     padding: 20px 0;
     border-bottom: 1px solid #bdc3c7;
   }
@@ -187,7 +356,7 @@ footer {
   .footer-welcome {
     display: flex;
     margin: 20px 0;
-    font-size: .8rem;
+    font-size: 1.4rem;
     color: #34495e;
   }
   .footer-welcome i {
@@ -205,11 +374,11 @@ footer {
   }
   .footer-ul ul li h4 {
     color: #34495e;
-    font-size: .7rem;
+    font-size: 1.3rem;
   }
   .footer-ul ul li a {
     color: #7f8c8d;
-    font-size: .7rem;
+    font-size: 1.3rem;
   }
   .footer-ul ul li a:hover {
     text-decoration: underline; 
@@ -222,7 +391,7 @@ footer {
     padding: 12px 0;
     margin: 10px 0;
     color: #7f8c8d;
-    font-size: .7rem;
+    font-size: 1.4rem;
   }
   .footer-contact a {
     color: #3498db;
@@ -232,7 +401,7 @@ footer {
   }
   .footer-copyright {
     color: #7f8c8d;
-    font-size: .7rem;
+    font-size: 1.3rem;
     display: flex;
     justify-content: space-between;
   }
