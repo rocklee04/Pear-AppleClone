@@ -1,8 +1,10 @@
-const loginText = document.querySelector(".title-text .login");
-         const loginForm = document.querySelector("form.login");
-         const loginBtn = document.querySelector("label.login");
-         const signupBtn = document.querySelector("label.signup");
-         const signupLink = document.querySelector("form .signup-link a");
+  const loginText = document.querySelector(".title-text .login");
+  const loginForm = document.querySelector("form.login");
+  const loginBtn = document.querySelector("label.login");
+  const signupBtn = document.querySelector("label.signup");
+  const signupLink = document.querySelector("form .signup-link a");
+
+  
          signupBtn.onclick = (()=>{
            loginForm.style.marginLeft = "-50%";
            loginText.style.marginLeft = "-50%";
@@ -34,30 +36,40 @@ const loginText = document.querySelector(".title-text .login");
           email: emailInp.value,
           password: passwordInp.value,
          }
-         console.log(obj)
+         fetch("https://jealous-hare-umbrella.cyclic.app/users/register", {
+          method: "POST",
+          headers:{
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj)
+        })
+        .then((res) => {
+          if(res.ok) {
+              return res.json()
+          }
+        })
+        .then((res) => {
+          console.log(res);
+          for(let i = 0; i < data.length; i++) {
+          
+            if(emailInp.value == data[i].email) {
+              alert("that username is already in use, please choose another")
+              return
+            }
+            else if(passwordInp.value.length < 8) {
+              alert("password is too short, atleast 8 characters")
+              return;
+            }
+          } 
+          alert("user successfully signed up.");
+          window.location.href = './signIn.html';
+        })
+        .catch(error =>  alert("Invalid Credentials", JSON.stringify(error)));
          
         
        
-        for(let i = 0; i < data.length; i++) {
-          
-          if(emailInp.value == data[i].email) {
-            alert("that username is already in use, please choose another")
-            return
-          }
-          else if(passwordInp.value.length < 8) {
-            alert("password is too short, atleast 8 characters")
-            return;
-          }
-        } 
-        if(Object.keys(obj).length == 3){
-
-          alert("Sign up Successful");
-          setTimeout(() => {
-          location.replace("./signIn.html");
-          }, 1000);
-
-
-        }
+        
+        
         data.push(obj);
       localStorage.setItem("account-data", JSON.stringify(data));  
          
@@ -70,41 +82,37 @@ const loginText = document.querySelector(".title-text .login");
     let email = document.getElementById("user")
         let password = document.getElementById("password1");
 
-        console.log(email.value, password.value)
 
       formE.addEventListener("submit", function(event) {
         event.preventDefault();
 
 
+       
+          let obj ={
+            email: loginUseremail.value,
+            password: loginUserPassword.value
+          };
         
-        
-        
-        console.log(email, password)
-
-        let flag =false;
-
-        LSdata.forEach(function(el) {
+          fetch("https://jealous-hare-umbrella.cyclic.app/users/login", {
+            method: "POST",
+            headers:{
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(obj)
+          })
+          .then((res) => {
+            if(res.ok) {
+                return res.json()
+            }
+            throw new Error('Invalid credentials');
+          })
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("localAccessToken", data.token);
+            alert("user successfully logged in.");
+            window.location.href = 'notes.html';
+          })
+          .catch(error =>  alert("Invalid Credentials", JSON.stringify(error)));
           
-          if(el.email == email.value && el.password == password.value) {
-
-            flag = true;
-            
-          }
-        });
-
-
-
-        if(flag){
-
-          alert("Log in Successful");
-          setTimeout(() => {
-        location.replace("./index.html");
-        }, 1000);
-
-        }
-        else {
-
-          alert("Wrong Credentials");
-
-        }
+        
       });
