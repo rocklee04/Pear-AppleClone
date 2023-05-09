@@ -22,7 +22,7 @@
   
 * <h3>Developer:</h3>
   
-  <h4>Frontend -</h4><p>Monisha Verma</p> 
+  <p>Monisha Verma</p> 
 
 
 <h1>Thank You<h1>
